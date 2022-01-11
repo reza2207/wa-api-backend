@@ -1,0 +1,22 @@
+.title{
+    position: absolute;
+    width: 81px;
+    height: 43px;
+
+    font-family: Lato;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 36px;
+    line-height: 43px;
+
+    color: #FFFFFF;
+}
+
+.background1{
+    position: absolute;
+width: 1366px;
+height: 720px;
+
+background: linear-gradient(90.29deg, #121E86 0.87%, rgba(70, 89, 255, 0.65) 99.73%), #FFF8F8;
+
+}

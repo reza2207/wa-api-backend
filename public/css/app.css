@@ -1,0 +1,30 @@
+.title{
+
+    font-family: Lato;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 36px;
+    color: #FFFFFF;
+    
+}
+
+.navbar{
+    background-color: #0C206C;
+}
+
+.imgcard{
+    margin-top: 20px !important;
+    height: 66px;
+    width: 66px;
+    display: block;
+    margin: 0 auto;
+}
+
+.cardtitle{
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 21px;
+    text-align: center;
+}
