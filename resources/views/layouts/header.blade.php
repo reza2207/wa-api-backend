@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>NOVA CMS</title>
+        <title>{{ $title }}</title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
@@ -25,14 +25,14 @@
     <body>
         <nav class="navbar navbar-expand-lg">
             <div class="container">
-                <a class="navbar-brand text-white title" href="{{ url('/')}}">NOVA</a>
+                <a class="navbar-brand text-white title" href="{{ url('/')}}">Rezamind</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <nav class="d-inline-flex mt-2 mt-md-0 ms-md-auto">
                         @auth
-                        <a  href="{{ url('/home') }}" class="me-3 py-2  text-white text-decoration-none">Home</a>    
+                        <a  href="{{ url('/home') }}" class="me-3 py-2  text-white text-decoration-none">Home</a>
                         <a href="{{ url('/articles') }}" class="me-3 py-2 text-white text-sm text-decoration-none">Articles</a>
                         <a class="me-3 py-2 text-white text-sm text-decoration-none btn btn-danger" style="border-radius: 21px" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
@@ -44,19 +44,18 @@
                             @csrf
                         </form>
                         @else
-                        
+
                             <a href="{{ url('/home') }}" class="me-3 py-2  text-white text-decoration-none">Home</a>
                             <a href="{{ url('/articles') }}" class="me-3 py-2 text-white text-sm text-decoration-none">Articles</a>
-                            
+
                             @if (Route::has('register'))
                             <a href="{{ route('register') }}" class="me-3 py-2 text-white text-decoration-none btn btn-danger" style="border-radius: 21px">Sign Up</a>
                             @endif
                         @endauth
-                
+
                     </nav>
                 </div>
             </div>
         </nav>
         @yield('content')
         @extends('layouts/footer')
-    

@@ -22,17 +22,19 @@ Route::get('/home', function () {
 });
 
 
-Route::get('/articles', [App\Http\Controllers\ArticlesController::class, 'index'])->name('articles');
-Route::get('/tabungan', [App\Http\Controllers\TabunganController::class, 'index'])->name('tabungan');
 
+//tabungan
+Route::get('/tabungan', [App\Http\Controllers\TabunganController::class, 'index']);
+Route::post('/tabungan/import_excel',  [App\Http\Controllers\TabunganController::class,'import_excel']);
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/kirimemail',[App\Http\Controllers\TabunganController::class, 'sendEmail']);
 
+//articles
+Route::get('/articles', [App\Http\Controllers\ArticlesController::class, 'index']);
 Route::get('/articles/new', [App\Http\Controllers\ArticlesController::class, 'new_article'])->name('articles');
-Auth::routes();
 
 Route::post('/articles/store', [App\Http\Controllers\ArticlesController::class, 'store'])->name('store');
 Route::post('/articles/update', [App\Http\Controllers\ArticlesController::class, 'update'])->name('update');
 Route::get('/articles/edit/{id}', [App\Http\Controllers\ArticlesController::class, 'edit'])->name('edit');
 Route::get('/articles/delete/{id}', [App\Http\Controllers\ArticlesController::class, 'delete'])->name('delete');
 
-Route::get('/kirimemail',[App\Http\Controllers\TabunganController::class, 'sendEmail'])->name('articles');

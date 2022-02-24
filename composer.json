@@ -11,7 +11,10 @@
         "laravel/framework": "^8.75",
         "laravel/sanctum": "^2.13",
         "laravel/tinker": "^2.5",
-        "laravel/ui": "^3.4"
+        "laravel/ui": "^3.4",
+        "maatwebsite/excel": "*",
+        "phpoffice/phpspreadsheet": "dev-NumberFormatMask-Helpers",
+        "laravelcollective/html": "5.2.*"
     },
     "require-dev": {
         "facade/ignition": "^2.5",

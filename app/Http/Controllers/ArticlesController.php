@@ -10,13 +10,18 @@ use App\Models\Articles;
 
 class ArticlesController extends Controller
 {
+
+    public $title = "Articles";
+
     public function __construct()
     {
         //$this->middleware('auth');
+
     }
 
     public function index()
     {
+        $data['title'] = $this->title;
         $articles = new Articles;
         $list = Articles::all();
         //dump($list);

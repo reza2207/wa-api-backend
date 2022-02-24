@@ -12,10 +12,13 @@ use App\Models\UserTabungan;
 class TabunganController extends Controller
 {
     //
+    public $title = "Tabungan";
 
     public function index()
     {
+        $data['title'] = $this->title;
 
+        return view('tabungan', $data);
     }
 
     public function api_get_user()
