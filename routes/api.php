@@ -3,7 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
-use App\Http\Controllers\ArticlesController;
+use App\Http\Controllers\API\TabunganController;
 
 /*
 |--------------------------------------------------------------------------
@@ -39,4 +39,11 @@ Route::group(['middleware' => 'api'], function() {
 
     Route::get('/all-articles',[App\Http\Controllers\ArticlesController::class, 'getAllArticles']);
     Route::get('/get-articles/{id}',[App\Http\Controllers\ArticlesController::class, 'getIdArticles']);
+    Route::post('/articles/store',[App\Http\Controllers\ArticlesController::class, 'store']);
+
+    //tabungan
+    Route::get('/user-tab',[App\Http\Controllers\API\TabunganController::class, 'get_user']);
+    Route::post('/add-user-tab',[App\Http\Controllers\API\TabunganController::class, 'add_user']);
+
+
 });

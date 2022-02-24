@@ -18,7 +18,7 @@ class TabunganController extends Controller
 
     }
 
-    public function user()
+    public function api_get_user()
     {
         $user = UserTabungan::all();
 

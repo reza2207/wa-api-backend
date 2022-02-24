@@ -18,7 +18,7 @@ class ArticlesController extends Controller
     public function index()
     {
         $articles = new Articles;
-        $list = Articles::all(); 
+        $list = Articles::all();
         //dump($list);
         $data['posts'] = $list;
         $data['last'] = Articles::orderBy('created_at', 'desc')->first();
@@ -48,7 +48,7 @@ class ArticlesController extends Controller
 
         $tujuan = 'img-articles';
 		$image->move($tujuan,$nama_file);
-        
+
         $id = Auth::user()->id;
 		articles::create([
             'title' => $request->title,
@@ -125,6 +125,42 @@ class ArticlesController extends Controller
         return response()->json([
             'message' => 'success',
             'data' => $articles
+        ], 200);
+    }
+
+    public function api_store(Request $request)
+    {
+        //api
+
+
+        $this->validate($request, [
+			'title'=> 'required',
+            'content'=> 'required',
+            'image' => 'file|image|mimes:jpeg,png,jpg|max:2048',
+		]);
+
+        $image = $request->file('image');
+        if($image !== null){
+        $nama_file = time()."_".$image->getClientOriginalName();
+
+            //tujuan
+
+            $tujuan = 'img-articles';
+            $image->move($tujuan,$nama_file);
+        }else{
+            $nama_file = "";
+        }
+        $id = Auth::user()->id;
+		articles::create([
+            'title' => $request->title,
+            'content' => $request->content,
+			'image' => $nama_file,
+            'slug' => Str::slug($request->title, '-'),
+            'id_users' => $id
+		]);
+        return response()->json([
+            'message' => 'berhasil ditambahkan',
+            'data' => 'success',
         ], 200);
     }
 }
